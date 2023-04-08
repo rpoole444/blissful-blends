@@ -1,25 +1,17 @@
 import React, {useState, useEffect} from "react";
 import "./Welcome.css"
 import Header from "../Header/Header";
+import { apiCalls } from "../apiCalls";
 
 
 const Welcome = () =>{
   const [allStrains, setAllStrains] = useState([])
   const [ fetching, setFetch] = useState(false)
 
-  const fetchData = () => {
-     const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY || '' ,
-		'X-RapidAPI-Host': 'weed-strain1.p.rapidapi.com'
-	}
-};
-
- return fetch('https://weed-strain1.p.rapidapi.com/?ordering=-strain', options)
-	.then(response => response.json())
-	.then(data => setAllStrains(data))
-	.catch(err => console.error(err));
+  const fetchData = (): void => {
+  apiCalls.getAllStrains()
+	  .then(data => setAllStrains(data))
+	  .catch(err => console.error(err));
   }
 
 useEffect(() => {
@@ -31,7 +23,7 @@ useEffect(() => {
 console.log("allStrains: ", allStrains)
   return (
     <section className="App">
-      <Header />
+      <Header fetchData={fetchData} allStrains={allStrains}/>
       <section>
         <section className="card-container">
           <section>
