@@ -14,10 +14,7 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card}) => {
 
   }, [allStrains])
 
-  const viewAllStrains = allStrains?.map(strain =>{
-console.log("ALL DA STRAINS: ", strain)
-   return <CannaCard key={strain.id} {...strain} type={card} /> 
-  } 
+  const viewAllStrains = allStrains?.map(strain => <CannaCard key={strain.id} {...strain} type={card} /> 
   )
   
   
