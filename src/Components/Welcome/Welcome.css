@@ -1,0 +1,44 @@
+.main-hybrid-image {
+  width: 50%;
+  height: auto;
+}
+.main-sativa-image{
+  width: 60%;
+  height: auto;
+}
+.main-indica-image{
+  width: 70%;
+  height: auto;
+}
+
+.main-page-boxs {
+  border: 2px solid black;
+  width: 30vw;
+  height: 40vh;
+}
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-width: 1200px; /* Add this line and adjust the value as needed */
+  margin: 0 auto;
+}
+.sativa-indica-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100vw;
+  max-width: 1200px; /* Add this line and adjust the value as needed */
+  margin: 0 auto; /* Add this line to center the container */
+}
+
+
+
+
+
+
+

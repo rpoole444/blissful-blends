@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; /* Add this line */
+}
+.header-content {
+  width: 100%;
+  max-width: 1200px; /* Adjust this value according to your needs */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+ .logo{
+  margin: 2em;
+  height: 8vh;
+ }
+.title-container{
+  padding: 0 3vw 0 4vw;
+  width:40vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.title{
+  color: darkblue;
+  font-size: 3vh;
+}
+ .button-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 35vw;
+  align-items: center;
+ }
+ .header-buttons{
+  height: 3.5vh;
+  width: 14vw;
+ }
