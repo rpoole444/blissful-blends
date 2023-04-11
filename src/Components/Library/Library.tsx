@@ -33,11 +33,11 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card}) => {
   })
   
   const determineRender = () => {
-            if(card === 'Hybrid') {
+            if(card === 'Hybrids') {
                 return allStrains.length > 0 ? hybridCards : <p>No Hybrids Available</p>
-            } else if(card === 'Sativa'){
+            } else if(card === 'Sativas'){
                 return allStrains.length > 0 ? sativaCards : <p>No Sativas available.</p>
-            }else if(card === 'Indica'){
+            }else if(card === 'Indicas'){
                 return allStrains.length > 0 ? indicaCards : <p>No Sativas available.</p>
             }else if(card === 'allStrains'){
                 return allStrains.length > 0 ? allStrainCards : <p>No Sativas available.</p>
