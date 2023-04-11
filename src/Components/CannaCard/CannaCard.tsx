@@ -34,13 +34,12 @@ const CannaCard: React.FC<CannaCardProps> = (props) => {
   
   return (
         <div className="CannaCard">
-            
             <div className="card-image">
-                <img src={props.imgThumb} alt={props.strain}/>
+                <img className="card-image"src={props.imgThumb} alt={props.strain}/>
             </div>
-                <h2 className="scholarship-title">{props.strain}</h2>
-                <p className="scholarship-award">THC % :{props.thc}</p>
-            <button className="scholarship-button">Save</button>
+                <h2 className="cannabis-title">{props.strain}</h2>
+                <p className="cannabis-thc">THC percentage: {props.thc}</p>
+            <button className="cannabis-button">Save</button>
         </div>
     )
 }

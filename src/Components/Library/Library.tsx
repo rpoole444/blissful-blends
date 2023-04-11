@@ -21,7 +21,7 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card}) => {
   return(
     <div>
       <Header fetchData={fetchData} allStrains={allStrains} />
-      <section>
+      <section className="all-strains-container">
         {viewAllStrains}
       </section>
     </div>

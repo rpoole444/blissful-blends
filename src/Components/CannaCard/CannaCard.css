@@ -1,0 +1,18 @@
+.CannaCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 35vh;
+  width: 20vw;
+  border: 2px solid black;
+  margin-top: 3vh;
+}
+.card-image{
+  height: 15vh;
+}
+.cannabis-title{
+  font-size: 2vh;
+}
+.cannabis-thc{
+  font-size: 1.6vh;
+}
