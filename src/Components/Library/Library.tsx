@@ -14,15 +14,42 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card}) => {
 
   }, [allStrains])
 
-  const viewAllStrains = allStrains?.map(strain => <CannaCard key={strain.id} {...strain} type={card} /> 
-  )
+  const allStrainCards = allStrains?.map(strain => <CannaCard key={strain.id} {...strain} type={card} />)
+  const hybridCards = allStrains?.map(strain => {
+    if(strain.strainType === "Hybrid"){
+      return <CannaCard key={strain.id} {...strain} type={card} />
+    }
+  })
+
+  const sativaCards = allStrains?.map(strain => {
+    if(strain.strainType === "Sativa"){
+      return <CannaCard key={strain.id} {...strain} type={card} />
+    }
+  })
+  const indicaCards = allStrains?.map(strain => {
+    if(strain.strainType === "Indica"){
+      return <CannaCard key={strain.id} {...strain} type={card} />
+    }
+  })
   
+  const determineRender = () => {
+            if(card === 'Hybrid') {
+                return allStrains.length > 0 ? hybridCards : <p>No Hybrids Available</p>
+            } else if(card === 'Sativa'){
+                return allStrains.length > 0 ? sativaCards : <p>No Sativas available.</p>
+            }else if(card === 'Indica'){
+                return allStrains.length > 0 ? indicaCards : <p>No Sativas available.</p>
+            }else if(card === 'allStrains'){
+                return allStrains.length > 0 ? allStrainCards : <p>No Sativas available.</p>
+            }
+        }
+
   
   return(
     <div>
       <Header fetchData={fetchData} allStrains={allStrains} />
       <section className="all-strains-container">
-        {viewAllStrains}
+        {determineRender()}
       </section>
     </div>
   )

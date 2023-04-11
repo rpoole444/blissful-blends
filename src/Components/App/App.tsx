@@ -28,9 +28,9 @@ function App() {
         <Route exact path="/" component={Welcome} />
         <Route exact path="/allStrains" render={() => <Library card='allStrains' fetchData={fetchData} allStrains={allStrains}/>}/>
         <Route exact path="/matches" render={() => <Library card='matches'fetchData={fetchData} allStrains={allStrains}/>}/>
-        {/* <Route exact path="/hybrids" />
-        <Route exact path="/sativa" />
-        <Route exact path="/indica" /> */}
+        <Route exact path="/hybrids" render={() => <Library card='Hybrids' fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/sativa" render={() => <Library card='Sativas' fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/indica" render={() => <Library card='Indicas' fetchData={fetchData} allStrains={allStrains}/>}/>
       </Switch>
     </main>
   );
