@@ -6,8 +6,9 @@ import Library from "../Library/Library"
 import { apiCalls } from '../apiCalls';
 
 function App() {
- const [allStrains, setAllStrains] = useState([]);
+  const [allStrains, setAllStrains] = useState([]);
   const [fetching, setFetching] = useState(false);
+  const [favorites, setFavorited] = useState <Array<any>>(() => JSON.parse(localStorage.getItem("favorites") || "[]"))
 
 
   const fetchData = (): void => {
@@ -21,16 +22,21 @@ function App() {
       fetchData();
       setFetching(true);
     }
+   
   }, [fetching]);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites))
+  }, [favorites])
   return (
     <main>
       <Switch>
         <Route exact path="/" component={Welcome} />
-        <Route exact path="/allStrains" render={() => <Library card='allStrains' fetchData={fetchData} allStrains={allStrains}/>}/>
-        <Route exact path="/matches" render={() => <Library card='matches'fetchData={fetchData} allStrains={allStrains}/>}/>
-        <Route exact path="/hybrids" render={() => <Library card='Hybrids' fetchData={fetchData} allStrains={allStrains}/>}/>
-        <Route exact path="/sativas" render={() => <Library card='Sativas' fetchData={fetchData} allStrains={allStrains}/>}/>
-        <Route exact path="/indicas" render={() => <Library card='Indicas' fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/allStrains" render={() => <Library card='allStrains' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/matches" render={() => <Library card='matches' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/hybrids" render={() => <Library card='Hybrids' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/sativas" render={() => <Library card='Sativas' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/sativas" render={() => <Library card='Indicas' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
       </Switch>
     </main>
   );

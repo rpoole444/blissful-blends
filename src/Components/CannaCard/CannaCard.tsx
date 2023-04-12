@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./CannaCard.css"
 
 interface CannaCardProps {
@@ -23,16 +23,28 @@ interface CannaCardProps {
   imgAttribution:null
   imgAttributionLink:null
   imgCreativeCommons:boolean
+  setFavorited: Function;
+  favorites: Array<CannaCardProps>
 }
 
 const CannaCard: React.FC<CannaCardProps> = (props) => {
-    const [isSaved, setIsSaved] = useState(false);
-
-  const handleClick = () => {
-    if(!isSaved){
+  const [isSaved, setIsSaved] = useState(false);
+  const {setFavorited, favorites, id} = props
+ 
+useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    if (savedFavorites?.find((f: CannaCardProps) => f.id === props.id)) {
       setIsSaved(true);
+    }
+  }, [props.id]);
+
+  const handleClick= (e:any) => {
+    e.preventDefault()
+    setIsSaved(prevSaved => !prevSaved)
+    if(!isSaved){
+      setFavorited([...favorites, props])
     } else {
-      setIsSaved(false)
+      setFavorited(favorites.filter((strain:any) => strain.id !== props.id));
     }
   };
   
@@ -43,7 +55,7 @@ const CannaCard: React.FC<CannaCardProps> = (props) => {
             </div>
                 <h2 className="cannabis-title">{props.strain}</h2>
                 <p className="cannabis-thc">THC percentage: {props.thc}</p>
-            <button className="cannabis-button" onClick={() => handleClick()} style={{ backgroundColor: isSaved ? "red" : "gray"}}>{isSaved ? "Remove from Saved" : "Save this Scholarship"}</button>
+            <button className="cannabis-button" onClick={(e) => handleClick(e)} style={{ backgroundColor: isSaved ? "red" : "gray"}}>{isSaved ? "Remove from Saved" : "Save this Scholarship"}</button>
         </div>
     )
 }

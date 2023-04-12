@@ -5,30 +5,41 @@ import CannaCard from "../CannaCard/CannaCard";
 interface LibraryProps {
   fetchData: () => void;
   allStrains: Array<any>;
-  card: string
+  card: string;
+  setFavorited: (favorites: Array<any>) => void;
+  favorites: Array<any>;
 }
 
-const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card}) => {
+const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavorited, favorites}) => {
   
+  // useEffect(() => {
+
+  // }, [allStrains])
   useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    setFavorited(savedFavorites);
+  }, [setFavorited]);
 
-  }, [allStrains])
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
-  const allStrainCards = allStrains?.map(strain => <CannaCard key={strain.id} {...strain} type={card} />)
+
+  const allStrainCards = allStrains?.map(strain => <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />)
   const hybridCards = allStrains?.map(strain => {
     if(strain.strainType === "Hybrid"){
-      return <CannaCard key={strain.id} {...strain} type={card} />
+      return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />
     }
   })
 
   const sativaCards = allStrains?.map(strain => {
     if(strain.strainType === "Sativa"){
-      return <CannaCard key={strain.id} {...strain} type={card} />
+      return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
     }
   })
   const indicaCards = allStrains?.map(strain => {
     if(strain.strainType === "Indica"){
-      return <CannaCard key={strain.id} {...strain} type={card} />
+      return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
     }
   })
   
