@@ -1,5 +1,5 @@
 .main-hybrid-image {
-  width: 100%;
+  width: 90%;
   height: auto;
 }
 .main-sativa-image{
@@ -26,6 +26,7 @@
   max-width: 1200px; /* Add this line and adjust the value as needed */
   margin: 0 auto;
 }
+
 .sativa-indica-container{
   display: flex;
   flex-direction: row;

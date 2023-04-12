@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Logo from "/Users/reidpoole/blissful-blends/src/assets/cannabis.png"
+import Logo from "../../assets/cannabis.png"
 import { Link } from "react-router-dom";
 import "./Header.css"
 
