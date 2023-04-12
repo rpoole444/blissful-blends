@@ -31,7 +31,7 @@ const CannaCard: React.FC<CannaCardProps> = (props) => {
   const [isSaved, setIsSaved] = useState(false);
   const {setFavorited, favorites, id} = props
  
-  // this will parse the localStorage JSON and then find the 
+  // this will get allof our saved then iterate through to find the specific card and then set it to true, it will only change depending on the props.id.
 useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     if (savedFavorites?.find((f: CannaCardProps) => f.id === props.id)) {

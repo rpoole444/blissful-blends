@@ -12,19 +12,22 @@ interface LibraryProps {
 
 const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavorited, favorites}) => {
 
-  // this says if the setFavorited function is called, then parse through out favorites JSON and then set the 
+  // this says if the setFavorited function is called, then parse through our saved favorites JSON and then set them 
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     setFavorited(savedFavorites);
   }, [setFavorited]);
 
+//this one senses the favorites and honly changes/ adds or subtracts favorites upon click.
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
 
   const allStrainCards = allStrains?.map(strain => <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />)
+  
   const favoritedCards = favorites?.map(strain => <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />)
+ 
   const hybridCards = allStrains?.map(strain => {
     if(strain.strainType === "Hybrid"){
       return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />
@@ -36,6 +39,7 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavori
       return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
     }
   })
+
   const indicaCards = allStrains?.map(strain => {
     if(strain.strainType === "Indica"){
       return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
@@ -48,11 +52,11 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavori
             } else if(card === 'Sativas'){
                 return allStrains.length > 0 ? sativaCards : <p>No Sativas available.</p>
             }else if(card === 'Indicas'){
-                return allStrains.length > 0 ? indicaCards : <p>No Sativas available.</p>
+                return allStrains.length > 0 ? indicaCards : <p>No Indicas available.</p>
             }else if(card === 'allStrains'){
-                return allStrains.length > 0 ? allStrainCards : <p>No Sativas available.</p>
+                return allStrains.length > 0 ? allStrainCards : <p>No Strains available.</p>
             }else if(card === 'Matches'){
-                return favorites.length > 0 ? favoritedCards : <p>No Sativas available.</p>
+                return favorites.length > 0 ? favoritedCards : <p>You haven't favorited any strains.</p>
             }
         }
 
