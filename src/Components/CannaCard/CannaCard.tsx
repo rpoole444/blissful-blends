@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./CannaCard.css"
 
 interface CannaCardProps {
@@ -26,10 +26,14 @@ interface CannaCardProps {
 }
 
 const CannaCard: React.FC<CannaCardProps> = (props) => {
-    const [isSaved, setIsSaved] = React.useState(false);
+    const [isSaved, setIsSaved] = useState(false);
 
   const handleClick = () => {
-    setIsSaved(!isSaved);
+    if(!isSaved){
+      setIsSaved(true);
+    } else {
+      setIsSaved(false)
+    }
   };
   
   return (
@@ -39,7 +43,7 @@ const CannaCard: React.FC<CannaCardProps> = (props) => {
             </div>
                 <h2 className="cannabis-title">{props.strain}</h2>
                 <p className="cannabis-thc">THC percentage: {props.thc}</p>
-            <button className="cannabis-button">Save</button>
+            <button className="cannabis-button" onClick={() => handleClick()} style={{ backgroundColor: isSaved ? "red" : "gray"}}>{isSaved ? "Remove from Saved" : "Save this Scholarship"}</button>
         </div>
     )
 }
