@@ -11,10 +11,8 @@ interface LibraryProps {
 }
 
 const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavorited, favorites}) => {
-  
-  // useEffect(() => {
 
-  // }, [allStrains])
+  // this says if the setFavorited function is called, then parse through out favorites JSON and then set the 
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     setFavorited(savedFavorites);
@@ -26,6 +24,7 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavori
 
 
   const allStrainCards = allStrains?.map(strain => <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />)
+  const favoritedCards = favorites?.map(strain => <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />)
   const hybridCards = allStrains?.map(strain => {
     if(strain.strainType === "Hybrid"){
       return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />
@@ -52,6 +51,8 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavori
                 return allStrains.length > 0 ? indicaCards : <p>No Sativas available.</p>
             }else if(card === 'allStrains'){
                 return allStrains.length > 0 ? allStrainCards : <p>No Sativas available.</p>
+            }else if(card === 'Matches'){
+                return favorites.length > 0 ? favoritedCards : <p>No Sativas available.</p>
             }
         }
 

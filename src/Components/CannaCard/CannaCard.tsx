@@ -31,6 +31,7 @@ const CannaCard: React.FC<CannaCardProps> = (props) => {
   const [isSaved, setIsSaved] = useState(false);
   const {setFavorited, favorites, id} = props
  
+  // this will parse the localStorage JSON and then find the 
 useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     if (savedFavorites?.find((f: CannaCardProps) => f.id === props.id)) {

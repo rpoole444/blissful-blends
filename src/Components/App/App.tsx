@@ -24,7 +24,7 @@ function App() {
     }
    
   }, [fetching]);
-
+//if favorites have been changed, this useEffect will add the favoritse to the localStorage
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites))
   }, [favorites])
@@ -33,10 +33,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Welcome} />
         <Route exact path="/allStrains" render={() => <Library card='allStrains' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
-        <Route exact path="/matches" render={() => <Library card='matches' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/matches" render={() => <Library card='Matches' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
         <Route exact path="/hybrids" render={() => <Library card='Hybrids' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
         <Route exact path="/sativas" render={() => <Library card='Sativas' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
-        <Route exact path="/sativas" render={() => <Library card='Indicas' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
+        <Route exact path="/indicas" render={() => <Library card='Indicas' setFavorited={setFavorited} favorites={favorites} fetchData={fetchData} allStrains={allStrains}/>}/>
       </Switch>
     </main>
   );
