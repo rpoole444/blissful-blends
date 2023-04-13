@@ -8,7 +8,7 @@ export const apiCalls = {
     }
   };
   
-   return fetch('https://weed-strain1.p.rapidapi.com/?ordering=-strain', options)
+   return fetch(`${process.env.REACT_APP_API_BASE_URL}/?ordering=-strain`, options)
     .then(res => {
                 if (res.ok) {
                     return res.json()
