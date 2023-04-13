@@ -18,7 +18,7 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavori
     setFavorited(savedFavorites);
   }, [setFavorited]);
 
-//this one senses the favorites and honly changes/ adds or subtracts favorites upon click.
+//this one senses the favorites and only changes adds or subtracts favorites upon click.
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);

@@ -55,6 +55,7 @@ useEffect(() => {
                 <img className="card-image"src={props.imgThumb} alt={props.strain}/>
             </div>
                 <h2 className="cannabis-title">{props.strain}</h2>
+                <p className="cannabis-thc">Strain Type: {props.strainType}</p>
                 <p className="cannabis-thc">THC percentage: {props.thc}</p>
             <button className="cannabis-button" onClick={(e) => handleClick(e)} style={{ backgroundColor: isSaved ? "red" : "gray"}}>{isSaved ? "Remove from Saved" : "Save this Scholarship"}</button>
         </div>
