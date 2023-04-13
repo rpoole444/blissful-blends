@@ -29,22 +29,22 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavori
   const favoritedCards = favorites?.map(strain => <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />)
  
   const hybridCards = allStrains?.map(strain => {
-    if(strain.strainType === "Hybrid"){
-      return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites} />
-    }
+    return strain.strainType === "Hybrid" 
+    ? <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
+    : null
   })
 
   const sativaCards = allStrains?.map(strain => {
-    if(strain.strainType === "Sativa"){
-      return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
-    }
+    return strain.strainType === "Sativa"
+      ? <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
+      :null
   })
 
   const indicaCards = allStrains?.map(strain => {
-    if(strain.strainType === "Indica"){
-      return <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
-    }
-  })
+    return strain.strainType === "Indica"
+      ? <CannaCard key={strain.id} {...strain} type={card} setFavorited={setFavorited} favorites={favorites}/>
+      : null
+    })
   
   const determineRender = () => {
             if(card === 'Hybrids') {
