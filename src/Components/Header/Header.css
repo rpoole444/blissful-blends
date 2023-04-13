@@ -1,8 +1,14 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 100;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center; /* Add this line */
+  align-items: center;
+  width: 100%;
 }
 
 .header-content {
@@ -10,11 +16,11 @@
   max-width: 1200px; /* Adjust this value according to your needs */
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
  .logo{
-  margin: 2em;
-  height: 10vh;
+  margin: 1em;
+  height: 8vh;
   border-radius: 40px;
   -webkit-box-shadow: 10px 14px 33px 1px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 14px 33px 1px rgba(0,0,0,0.75);
@@ -23,7 +29,7 @@
  }
 
 .title-container{
-  padding: 0 0 0 0;
+  padding: 0;
   width:40vw;
   display: flex;
   justify-content: center;
@@ -32,7 +38,7 @@
 
 .title{
   color: darkblue;
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
 
  .button-container{
@@ -46,7 +52,7 @@
   background-color:lightsteelblue;
   border: 2px black solid;
   color: black;
-  padding: 0.5rem 0.75rem;
+  padding: 0.25rem 0.5rem;
   margin-top: 0.25rem;
   cursor: pointer;
   border-radius: 5px;
@@ -54,6 +60,7 @@
   -moz-box-shadow: 10px 14px 33px 1px rgba(0,0,0,0.75);
   box-shadow: 10px 14px 33px 1px rgba(0,0,0,0.75);
  }
+
  .header-buttons:hover{
     background-color: lightblue;
 }

@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding-top: 100px;
+  height: 100%;
+  overflow: auto;
+}
 .main-hybrid-image {
   width: 90%;
   height: auto;
@@ -15,16 +25,24 @@
   border: 2px solid black;
   width: 30vw;
   height: 40vh;
+  margin: 2vh;
 }
+
 .card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  min-height: 100vh;
-  min-width: 100vw;
-  max-width: 1200px; /* Add this line and adjust the value as needed */
+  height: 100%;
+  max-width: 1200px; 
+  width: 100vw;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .card-container, .sativa-indica-container {
+    max-width: 90vw;
+  }
 }
 
 .sativa-indica-container{
@@ -32,9 +50,10 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  min-width: 100vw;
-  max-width: 1200px; /* Add this line and adjust the value as needed */
-  margin: 0 auto; /* Add this line to center the container */
+  height: 100%;
+  max-width: 1200px; 
+  width: 100vw;
+  margin: 0 auto; 
 }
 
 
