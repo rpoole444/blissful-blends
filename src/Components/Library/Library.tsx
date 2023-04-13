@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import './Library.css'
 import Header from "../Header/Header";
 import CannaCard from "../CannaCard/CannaCard";
+import { Link } from "react-router-dom";
 interface LibraryProps {
   fetchData: () => void;
   allStrains: Array<any>;
@@ -64,6 +65,9 @@ const Library: React.FC<LibraryProps> = ({fetchData, allStrains, card, setFavori
   return(
     <div>
       <Header fetchData={fetchData} allStrains={allStrains} />
+      <Link to='/'>
+        <button className="back-home">back home</button>
+      </Link>
       <section className="all-strains-container">
         {determineRender()}
       </section>

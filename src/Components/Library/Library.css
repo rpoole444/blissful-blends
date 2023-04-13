@@ -5,3 +5,9 @@
   flex-wrap: wrap;
   overflow: scroll;
 }
+ .back-home {
+  height: 7vh;
+  border-radius: 20px;
+  position: fixed;
+  margin-left: 2vw;
+ }

@@ -11,10 +11,11 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ allStrains, fetchData }) => {
   return (
     <header className="header">
-      <Link to='/'>
-        <img className="logo" src={Logo} alt="hand and leaf" />
-      </Link>
+      
       <section className="header-content">
+        <Link to='/'>
+          <img className="logo" src={Logo} alt="hand and leaf" />
+        </Link>
         <section className="title-container">
           <h1 className="title">Blissful Blends</h1>
         </section>
