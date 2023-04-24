@@ -1,18 +1,145 @@
-.CannaCard{
+.CannaCard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 35vh;
+  height: 47vh;
   width: 20vw;
   border: 2px solid black;
-  margin-top: 3vh;
+  margin: 2vh;
+  overflow: auto;
+  background-color: rgba(173, 216, 230, 0.44);
+  -webkit-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.688);
+  -moz-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.654);
+  box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.639);
 }
-.card-image{
-  height: 15vh;
+.card-image {
+  margin-top: 1vh;
+  height: 7em;
 }
-.cannabis-title{
-  font-size: 2vh;
+.cannabis-title {
+  font-size: 1em;
 }
-.cannabis-thc{
-  font-size: 1.6vh;
+.cannabis-thc {
+  font-size: 0.9em;
+}
+
+.cannabis-button-unsaved {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  -webkit-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.688);
+  -moz-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.654);
+  box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.639);
+}
+
+.cannabis-button-unsaved :hover,
+.cannabis-button-unsaved :focus {
+  background-color: #1485d7;
+  color: #2c5777;
+}
+
+.cannabis-button-unsaved :focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.cannabis-button-unsaved :active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+
+.cannabis-button-saved {
+  background-color: #1485d7;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  -webkit-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.688);
+  -moz-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.654);
+  box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.639);
+}
+
+.cannabis-button-saved :hover,
+.cannabis-button-saved :focus {
+  background-color: #1485d7;
+  color: #2c5777;
+}
+
+.cannabis-button-saved :focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.cannabis-button-saved :active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+
+@media (max-width: 992px) {
+  .cannabis-button {
+    width: 10em;
+  }
+  .CannaCard {
+    height: 42vh;
+    width: 45vw;
+  }
+}
+
+@media (max-width: 620px) {
+  .CannaCard {
+    width: 55vw;
+  }
+  .cannabis-button {
+    width: 10em;
+  }
+}
+
+@media (max-width: 480px) {
+  .CannaCard {
+    width: 70vw;
+    height: 38vh;
+  }
+  .cannabis-button {
+    width: 10em;
+  }
 }

@@ -1,64 +1,102 @@
 * {
   box-sizing: border-box;
 }
-
-body{
+html,
+body {
   margin: 0;
-  padding-top: 100px;
+  min-height: 100vh;
   height: 100%;
+  width: 100%;
+}
+
+body {
   overflow: auto;
-}
-.main-hybrid-image {
-  width: 90%;
-  height: auto;
-}
-.main-sativa-image{
-  width: 50%;
-  height: auto;
-}
-.main-indica-image{
-  width: 70%;
-  height: auto;
+  padding-top: 100px;
+  background-image: url("/Users/reidpoole/turing_work/4mod/blissful-blends/src/assets/stacked-waves-haikei (2).png");
+  background-position: center;
+  background-size: cover;
 }
 
+.main-hybrid-image,
+.main-sativa-image,
+.main-indica-image {
+  background-color: white;
+  opacity: 0.95;
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: auto;
+}
 .main-page-boxs {
-  border: 2px solid black;
-  width: 30vw;
-  height: 40vh;
-  margin: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1rem;
+  width: 200px;
+  height: 250px;
+  background-color: rgba(173, 216, 230, 0.652);
+  -webkit-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 14px 33px 1px rgba(0, 0, 0, 0.75);
+  margin: 1rem;
 }
 
+.hybrid {
+  width: 25em;
+}
 .card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   height: 100%;
-  max-width: 1200px; 
+  max-width: 1200px;
+  width: 100vw;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.sativa-indica-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
   width: 100vw;
   margin: 0 auto;
 }
-
 @media (max-width: 768px) {
-  .card-container, .sativa-indica-container {
-    max-width: 90vw;
+  .main-page-boxs {
+    width: 50vw;
+  }
+}
+@media (max-width: 620px) {
+  .card-container {
+    flex-direction: column;
+  }
+
+  .sativa-indica-container {
+    flex-direction: column;
+  }
+
+  .main-page-boxs {
+    width: 90%;
   }
 }
 
-.sativa-indica-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  height: 100%;
-  max-width: 1200px; 
-  width: 100vw;
-  margin: 0 auto; 
+@media (max-width: 480px) {
+  .main-page-boxs {
+    width: 70vw;
+  }
+  .card-container {
+    flex-direction: column;
+  }
+
+  .sativa-indica-container {
+    flex-direction: column;
+  }
 }
-
-
-
-
-
-
-
